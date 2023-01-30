@@ -196,9 +196,12 @@ class Puzzle(object):
 
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--h', '--heuristic', help='Select 0,1,2 to pick a heuristic function to use', required=False)
+    args = parser.parse_args()
 
     # Parse puzzle
-    puzzle = fp.PuzzleInputParser.parse_txt_file('Datos.txt')
+    puzzle = fp.PuzzleInputParser.parse_txt_file('Datos.txt', int(args.h))
 
     # Solve puzzle
     #Timer iniciar

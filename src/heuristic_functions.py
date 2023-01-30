@@ -8,6 +8,7 @@ import src as common
 class Heuristics(Enum):
     MANHATTAN_DISTANCE = 0
     EUCLIDEAN_DISTANCE = 1
+    POSITION_EVALUATION = 2
 
 
 def find_heuristic_function(heuristic_function: int) -> Callable:
@@ -20,8 +21,18 @@ def find_heuristic_function(heuristic_function: int) -> Callable:
         return find_manhattan_distance
     elif heuristic_function == Heuristics.EUCLIDEAN_DISTANCE.value:
         return find_euclidean_distance
+    elif heuristic_function == Heuristics.POSITION_EVALUATION.value:
+        return find_position_evaluation
     else:
         raise ValueError("Unknown heuristic function value {0}".format(heuristic_function))
+
+def find_position_evaluation(first_state, second_state):
+    wrong_positions = 0
+    for i in range(len(first_state)):
+        for y in range(len(first_state[i])):
+            if first_state[i] != second_state[i]:
+                wrong_positions += 1
+    return wrong_positions
 
 
 def find_manhattan_distance(first_state, second_state):

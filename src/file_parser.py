@@ -36,15 +36,11 @@ class PuzzleInputParser(object):
         blocks = puzzle[PuzzleInputParser.BLOCKS_LABEL]
         initial_state = puzzle[PuzzleInputParser.INITIAL_STATE_LABEL]
         final_states = puzzle[PuzzleInputParser.FINAL_STATES_LABEL]
-        print('initial')
-        print(initial_state)
-        print('final')
-        print(final_states)
         PuzzleInputParser._validate_inputs(row, column, initial_state, final_states)
         return Puzzle(heuristic, row, column, blocks, initial_state, final_states)
     
     @staticmethod
-    def parse_txt_file(f):
+    def parse_txt_file(f, heuristic_value_list=0):
         initial_state = []
         final_states = [[]]
         with open(f) as file:
@@ -65,7 +61,7 @@ class PuzzleInputParser(object):
                 else:
                     initial_state[k][i] = int(initial_state[k][i])
                     final_states[0][k][i] = int(final_states[0][k][i])
-        return Puzzle(0,4,4,15,initial_state, final_states)
+        return Puzzle(heuristic_value_list,4,4,15,initial_state, final_states)
 
     @staticmethod
     def parse_plain_formatted_file(f: TextIO):
