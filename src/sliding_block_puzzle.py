@@ -201,6 +201,7 @@ if __name__ == '__main__':
     puzzle = fp.PuzzleInputParser.parse_txt_file('Datos.txt')
 
     # Solve puzzle
+    #Timer iniciar
     solution_exists, solution_path = puzzle.solve()
     movement_string = ''
     if solution_exists:
@@ -211,5 +212,7 @@ if __name__ == '__main__':
                 print(row)
             print()
         print(movement_string)
+        #timer parar
+        #print(timer)
     else:
         print("Solution does not exist.")
