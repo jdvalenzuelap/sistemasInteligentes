@@ -29,7 +29,7 @@ $ python3 -m src.sliding_block_puzzle --h 1
 $ python3 -m src.sliding_block_puzzle --h 2 
 ```
 0: Manhattan heuristic function
-1: Euclidian heuristic function
+1: Euclidean heuristic function
 2: Position evaluation heuristic function
 
 ## Input Format
