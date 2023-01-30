@@ -53,7 +53,7 @@ class PuzzleInputParser(object):
                     final_states[0].append(line.split(','))
         for k in range(len(initial_state)):
             for i in range(len(initial_state[k])):
-                if i == len(initial_state) - 1:
+                if i == len(initial_state) - 1 and i > 3:
                     initial_state[k][i] = initial_state[k][i][:len(initial_state) - 2]
                     final_states[0][k][i] = final_states[0][k][i][:len(final_states) - 2]
                     initial_state[k][i] = int(initial_state[k][i])

@@ -4,6 +4,7 @@ from typing import List, Tuple, Union
 import src.heuristic_functions as hf
 import src.file_parser as fp
 import src.state_transitions as st
+import time
 
 
 class Node(object):
@@ -37,6 +38,7 @@ class Puzzle(object):
         self.final_states = final_states
 
     def solve(self):
+        start = time.time()
         """
         A* Search Pseudo Algorithm
         ==========================
@@ -80,6 +82,14 @@ class Puzzle(object):
             else:
                 # Step g value since we cannot find final node and need to apply one more iteration
                 current_g_value = current_node.g_value + 1
+                end = time.time()
+
+                print(end - start)
+
+                if current_g_value > 50 or (end - start) > 30:
+                    print('The analysis is too long')
+                    break #long answer
+                    
                 # Expand children nodes
                 expanded_children = Puzzle._expand_node(current_node, self.block_count,
                                                         self.row_count, self.column_count)
@@ -215,6 +225,7 @@ if __name__ == '__main__':
                 print(row)
             print()
         print(movement_string)
+        print('# de movimientos: ' + str(len(solution_path)-1))
         #timer parar
         #print(timer)
     else:
