@@ -21,11 +21,16 @@ used where Manhattan Distance is represented with **0** and Euclidean Distance i
 with **1**.
 
 ## Usage
-Simply run sliding_block_puzzle.py as the following command
+Simply run sliding_block_puzzle.py as any of the following commands
    
 ```commandline
-$ python3 -m src.sliding_block_puzzle
+$ python3 -m src.sliding_block_puzzle --h 0   
+$ python3 -m src.sliding_block_puzzle --h 1 
+$ python3 -m src.sliding_block_puzzle --h 2 
 ```
+0: Manhattan heuristic function
+1: Euclidian heuristic function
+2: Position evaluation heuristic function
 
 ## Input Format
 There are two input format options that you can use. Before getting into formats, you need to
