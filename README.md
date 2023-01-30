@@ -97,6 +97,7 @@ F               # Separator for final states
 3. Txt files representing the initial and final state with values separated with commas. Each row of the
 file represents a row in the state. Example of input:
 
+```
 1,2,4,7 
 11,6,12,3 
 5,10,14,8 
@@ -105,3 +106,4 @@ file represents a row in the state. Example of input:
 5,6,7,8
 9,10,11,12
 13,14,15,0 
+```
