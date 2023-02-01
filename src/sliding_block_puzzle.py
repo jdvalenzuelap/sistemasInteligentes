@@ -86,7 +86,7 @@ class Puzzle(object):
 
                 print(end - start)
 
-                if current_g_value > 50 or (end - start) > 30:
+                if current_g_value > 50 or (end - start) > 900:
                     print('The analysis is too long')
                     break #long answer
                     
